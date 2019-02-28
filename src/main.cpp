@@ -1736,7 +1736,7 @@ double ConvertBitsToDouble(unsigned int nBits)
 
 int GetCurrentCollateral()
 {
-    if (NewCollateralProtocolVersion > 70719 /*or with nHeight > 442000  or do it with spork IsSporkActive(SPORK_17_CHANGE_COLLATERAL) */)
+    if (NewCollateralProtocolVersion > 70720 /*or do it with spork IsSporkActive(SPORK_17_CHANGE_COLLATERAL) */)
         return Params().MasternodeCollateralNew();
     else
         return Params().MasternodeCollateralOld();
