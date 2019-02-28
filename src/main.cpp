@@ -1655,6 +1655,15 @@ double ConvertBitsToDouble(unsigned int nBits)
 	return dDiff;
 } 
 
+int GetCurrentCollateral()
+{
+    if (nHeight > 442000 /* or do it with spork IsSporkActive(SPORK_17_CHANGE_COLLATERAL) */)
+        return Params().MasternodeCollateralNew();
+    else
+        return Params().MasternodeCollateralOld();
+				//return EXIT_SUCCESS;
+}
+
 int64_t GetBlockValue(int nHeight)
 {
 	int64_t nSubsidy = 0;
