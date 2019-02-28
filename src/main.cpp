@@ -61,6 +61,7 @@ int64_t nTimeBestReceived = 0;
 CWaitableCriticalSection csBestBlock;
 CConditionVariable cvBlockChange;
 int nScriptCheckThreads = 0;
+int NewCollateralProtocolVersion = PROTOCOL_VERSION;
 bool fImporting = false;
 bool fReindex = false;
 bool fTxIndex = true;
@@ -1735,7 +1736,7 @@ double ConvertBitsToDouble(unsigned int nBits)
 
 int GetCurrentCollateral()
 {
-    if (nHeight > 442000 /* or do it with spork IsSporkActive(SPORK_17_CHANGE_COLLATERAL) */)
+    if (NewCollateralProtocolVersion > 70720 /*or do it with spork IsSporkActive(SPORK_17_CHANGE_COLLATERAL) */)
         return Params().MasternodeCollateralNew();
     else
         return Params().MasternodeCollateralOld();
